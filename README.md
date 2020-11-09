@@ -1,75 +1,170 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="https://flatgarden.imweb.me/" target="blank"><img src="https://cdn.imweb.me/thumbnail/20200527/8394b8cd5faa4.png" width="320" alt="hakhak Logo" /></a>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
+  <p align="center">입시 고민 메신저 학학이 서버 테스트 과제</p>
+  <iframe width="640" height="360" src="https://www.notion.so/flatgarden/1eebb73c22354f8f8b03f1a1539a2925"  
+ frameborder="0" ></iframe>
+
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/nestjs/nest)와 [TypeOrm](https://typeorm.io/#/)을 이용해서 grpahql 서버를 짜는 과제입니다.
+
+완성을 원하는 것이 아니라 코드 작성에 대한 과정 및 의도를 보려고 함이니 큰 부담 가지지 않으셔도 됩니다.
+
+src 내에 app, board, user 도메인이 존재하고
+test/app.e2e-spec.ts 안에 테스트에 맞춰 resolver와 service를 작성해주시면 됩니다.
+
+database는 docker-compose를 통해 가동하셔서 진행하시면 되고
+docker-compose 서버 컨테이너는 prod 환경으로 진행됩니다.
+
+완료 기간은 1주일이내 완료해주시면 되고 해당 리포지토리를 clone하여 작성해주신 후
+origin 을 따로 추가해서 개인 리포의 repository url을 mail(tech@flatgarden.kr)로 보내주시면 됩니다.
+
+추가적으로 질문사항이나 궁금한 것이 있으면 [오픈채팅방](https://open.kakao.com/o/sULPN0Fc)에서 질문 바랍니다.
 
 ## Installation
 
+개발에만 집중할 수 있도록, 일부 서버 환경(nestjs/typeorm)이 포함되어 있습니다. src 디렉토리에서 작업을 하시면 됩니다. 이 레포지토리를 클론한 후에 다음의 명령어로 서버를 시작할 수 있습니다.
+
+docker-compose 환경이 구축되어야합니다.
+
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
 # production mode
-$ npm run start:prod
+$ yarn start:prod
 ```
 
 ## Test
 
-```bash
-# unit tests
-$ npm run test
-
+```
 # e2e tests
 $ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
 ```
+
+e2e test에 적혀있는 3가지 테스트 케이스와 함께 추가적으로 CRUD에 대해서
+작성할 수 있는 테스트 케이스를 작성하여 주세요.
+
+## 기획
+
+유저가 글을 작성할 수 있는 게시판
+
+유저를 생성할 수 있다.
+유저는 글을 작성/수정/삭제 할 수 있다.
+유저가 쓴 글을 모아서 볼 수 있다.
+유저나 글에 대해서 검색을 할 수 있다 (id)
+
+- Base Model
+
+```typescript
+@ObjectType({ isAbstract: true })
+export abstract class BaseModel {
+  @PrimaryGeneratedColumn('increment')
+  @Field((_) => ID)
+  id!: number;
+
+  @CreateDateColumn()
+  @Field((_) => Date)
+  createdAt!: Date;
+
+  @UpdateDateColumn()
+  @Field((_) => Date)
+  updatedAt!: Date;
+
+  @Column({ nullable: true })
+  @Field((_) => Date, { nullable: true })
+  deletedAt?: Date;
+}
+```
+
+- User Model
+
+```typescript
+@ObjectType()
+@Entity()
+export class User extends BaseModel {
+  @Column()
+  @Field((_) => String)
+  name!: string;
+
+  @OneToMany(
+    () => Board,
+    (board) => board.author,
+  )
+  @Field((_) => [Board])
+  boards!: Board[];
+}
+```
+
+- Board Model
+
+```typescript
+@Entity()
+@ObjectType()
+export class Board extends BaseModel {
+  @Column()
+  @Field((_) => String)
+  title!: string;
+
+  @Column()
+  @Field((_) => String)
+  content!: string;
+
+  @ManyToOne(
+    () => User,
+    (user) => user.boards,
+  )
+  @Field((_) => User)
+  author!: User;
+}
+```
+
+서버 개발시 꼭 데이터베이스를 이용해야하며 테스트 케이스에 통과된 개수로 채점을 진행합니다.
+테스트 케이스를 작성하여 주세요.
+
+### 최소 요구 API
+
+유저 생성 : createUser
+유저 삭제 : deleteUser ( soft delete )
+board 작성 : createBoard
+유저가 작성한 board 검색 : getBoards
+
+## 제출 방법
+
+과제를 받고 일주일 기한 안에 mail로 repository url을 보내주시면 됩니다.
+
+## 채점 방법
+
+e2e test 를 진행하여 test 통과 갯수로 진행합니다.
+test 케이스를 다양하게 작성하시면 가산점이 적용됩니다.
+
+### 가산점 항목
+
+- [JWT](https://jwt.io/)를 이용하여서 authentication과 authorization을 구현하였을 경우
+  - nest의 authguard를 사용할 수 있습니다.
+- 도메인 별로 브랜치를 나누어서 개발했을 경우
+- test case 를 직접 작성하였을 경우
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+[오픈채팅방](https://open.kakao.com/o/sULPN0Fc)
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-  Nest is [MIT licensed](LICENSE).
+- mail - tech@flatgarden.kr
+- Website - [https://www.hakhak.io](https://www.hakhak.io)
