@@ -22,6 +22,7 @@ origin 을 따로 추가해서 개인 리포의 repository url을 mail(tech@flat
 추가적으로 질문사항이나 궁금한 것이 있으면 [오픈채팅방](https://open.kakao.com/o/sULPN0Fc)에서 질문 바랍니다.
 
 - Before you start
+
   개발에만 집중할 수 있도록, 일부 서버 환경(nestjs/typeorm)이 포함되어 있습니다.
   src 디렉토리에서 작업을 하시면 됩니다.
   이 레포지토리를 클론한 후에 다음의 명령어로 서버를 시작할 수 있습니다.
@@ -73,6 +74,11 @@ $ docker-compose up server
 
 ```bash
 $ docker-compose up test
+```
+### Stops containers and removes containers, networks, volumes
+
+```bash
+$ docker-compose down
 ```
 
 ## local 개발 환경
