@@ -1,17 +1,16 @@
 version: '3'
 services:
-  database:
-    image: bitnami/postgresql:11-debian-9
+  db:
+    image: postgres:13.0
     restart: on-failure
     ports:
       - '5432:5432'
     environment:
-      - POSTGRESQL_PASSWORD=testpasswd
-      - POSTGRESQL_USERNAME=testuser
-      - POSTGRESQL_DATABASE=testdb
-      - POSTGRESQL_REPLICATION_MODE=master
-      - POSTGRESQL_REPLICATION_USER=repuser
-      - POSTGRESQL_REPLICATION_PASSWORD=reppassword
+      - POSTGRES_PASSWORD=testpasswd
+      - POSTGRES_USER=testuser
+      - POSTGRES_DB=testdb
+    volumes:
+      - database:/var/lib/postgresql/data
     networks:
       hakhak_net:
         ipv4_address: 172.16.25.2
@@ -24,11 +23,27 @@ services:
     volumes:
       - '.:/usr/src/hakhak'
     depends_on:
-      - database
+      - db
     command: 'yarn start:prod'
     networks:
       hakhak_net:
         ipv4_address: 172.16.25.3
+  test:
+    build:
+      context: .
+      dockerfile: ./test.dockerfile
+    ports:
+      - '80:3000'
+    volumes:
+      - '.:/usr/src/test'
+    depends_on:
+      - db
+    command: 'yarn test'
+    networks:
+      hakhak_net:
+        ipv4_address: 172.16.25.4
+volumes:
+  database:
 networks:
   hakhak_net:
     driver: bridge

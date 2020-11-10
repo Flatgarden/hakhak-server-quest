@@ -8,14 +8,14 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn build && \
-    yarn install --production
+RUN yarn pretest:e2e && \
+    yarn install 
 
 FROM node:14.15.0-alpine3.10 as runner
 
 COPY --from=builder /usr/src/hakhak/node_modules ./node_modules
 COPY --from=builder /usr/src/hakhak/package.json ./package.json
-COPY --from=builder /usr/src/hakhak/dist ./dist
+COPY --from=builder /usr/src/hakhak/dist-test ./dist-test
 COPY --from=builder /usr/src/hakhak/schema.graphql .
 
 EXPOSE 3000
