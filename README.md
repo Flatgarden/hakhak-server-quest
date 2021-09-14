@@ -217,10 +217,11 @@ test 케이스를 다양하게 작성하시면 가산점이 적용됩니다.
 
 ### 가산점 항목
 
-- [JWT](https://jwt.io/)를 이용하여서 authentication과 authorization을 구현하였을 경우
+- [5점]graphql schema first로 코드를 변경해서 코딩한 경우
+- [4점][JWT](https://jwt.io/)를 이용하여서 authentication과 authorization을 구현하였을 경우
   - nest의 authguard를 사용할 수 있습니다.
-- 도메인 별로 브랜치를 나누어서 개발했을 경우
-- test case 를 직접 작성하였을 경우
+- [2점]도메인 별로 브랜치를 나누어서 개발했을 경우
+- [5점]test case 를 직접 작성하였을 경우
 
 ## Support
 
